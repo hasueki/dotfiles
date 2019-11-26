@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Remove username@machine in prompt
+DEFAULT_USER=`whoami`
+
+# Set default kube context
+kubesw dev

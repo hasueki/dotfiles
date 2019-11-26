@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# For NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# GOPATH
+export GOPATH="/Users/Hidematsu.Sueki@ibm.com/go"
+
+# For istio.io
+export PATH="$PATH:/Users/Hidematsu.Sueki@ibm.com/istio-0.4.0/bin"
+
+# For istio.io/fortio
+export PATH="$PATH:/Users/Hidematsu.Sueki@ibm.com/go/bin"
+
+# For Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# For Python3 env
+export PATH="$PATH:/Users/Hidematsu.Sueki@ibm.com/env/bin"
