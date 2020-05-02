@@ -55,7 +55,6 @@ function kubesw() {
         read "PROMPT?Overwrite existing alias set to "$EXIST_CLUSTER"? <y/N> "
         if [[ $PROMPT =~ [yY](es)* ]]
         then
-          echo "SED WILL RUN"
           sed -i.bk "s/$EXIST/$ALIAS : $CLUSTER/" $ALIAS_FILE
         fi
       else
