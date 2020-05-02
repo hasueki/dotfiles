@@ -5,3 +5,6 @@ alias cat='ccat'
 
 # Epoch time
 alias epoch='date +%s'
+
+# Modern replacement for ls - https://github.com/ogham/exa
+alias ls='exa'
