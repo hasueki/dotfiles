@@ -74,7 +74,7 @@ function kubesw() {
     do
       echo "Checking: $EACH"
       # Run cmd to check validity
-      local CHECK=$(KUBECONFIG=$(ls $IKS_CLUSTERS_DIR/$EACH/*.yml) gtimeout --kill-after=$TIMEOUT $TIMEOUT kubectl get nodes)
+      local CHECK=$(KUBECONFIG=$(ls $IKS_CLUSTERS_DIR/$EACH/*.yml) gtimeout --kill-after=$TIMEOUT $TIMEOUT kubectl get pods)
       if [ -z "$CHECK" ] || [ "$CHECK" == *"Unable to connect to the server"* ] # Timed out or cannot connect
       then
         echo "Pruning:  $EACH\n"
