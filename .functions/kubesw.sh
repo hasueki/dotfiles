@@ -24,7 +24,7 @@ function kubesw() {
     local FLAGS="--admin"
 
     # Select account
-    local IC_ACCOUNT=$(ibmcloud account list | fzf --header-lines=3 --height 20% --reverse | awk '{print $1}')
+    local IC_ACCOUNT=$(ibmcloud account list | fzf --header-lines=3 --reverse | awk '{print $1}')
 
     if [ ! -z "$IC_ACCOUNT" ]
     then
@@ -32,7 +32,7 @@ function kubesw() {
       ibmcloud target -c $IC_ACCOUNT
 
       # Select cluster
-      local CLUSTER=$(ibmcloud ks cluster ls | fzf --header-lines=2 --height 20% --reverse | awk '{print $1}')
+      local CLUSTER=$(ibmcloud ks cluster ls | fzf --header-lines=2 --reverse | awk '{print $1}')
 
       if [ ! -z "$CLUSTER" ]
       then
@@ -44,7 +44,7 @@ function kubesw() {
   }
 
   local setalias() {
-    local CLUSTER=$(ls $IKS_CLUSTERS_DIR | fzf --header="Select target cluster to set alias:" --height 20% --reverse)
+    local CLUSTER=$(ls $IKS_CLUSTERS_DIR | fzf --header="Select target cluster to set alias:" --reverse)
     if [ ! -z "$CLUSTER" ]
     then
       read "ALIAS?Enter alias name for $CLUSTER: "
@@ -89,7 +89,7 @@ function kubesw() {
   do
     if [ "$arg" == "--all" ] || [ "$arg" == "-a" ]
     then
-      local CLUSTER_NAME=$(ls $IKS_CLUSTERS_DIR | fzf --height 20% --reverse)
+      local CLUSTER_NAME=$(ls $IKS_CLUSTERS_DIR | fzf --reverse)
       if [ ! -z "$CLUSTER_NAME" ]
       then
         export KUBECONFIG=$(ls $IKS_CLUSTERS_DIR/$CLUSTER_NAME/*.yml)
@@ -132,7 +132,7 @@ function kubesw() {
       fi
     done <<< $ALIASES
 
-    local ALIAS=$(fzf --height 20% --reverse <<< $ALIASES | awk '{print $1}')
+    local ALIAS=$(fzf --height 50% --reverse <<< $ALIASES | awk '{print $1}')
     if [ ! -z "$ALIAS" ]
     then
       kubesw $ALIAS
